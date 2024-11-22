@@ -186,3 +186,83 @@ class CatyHomeItem extends StatelessWidget {
     );
   }
 }
+
+class CardProductHomeItem extends StatelessWidget {
+  const CardProductHomeItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: Stack(
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image(
+                  height: double.infinity,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(
+                      "https://t4.ftcdn.net/jpg/03/09/86/97/360_F_309869761_j1iNuNqM6BTAkgrH2vaFtHaYixKH8Coi.jpg"),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: kPrimary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(left: 5),
+                    child: const Text(
+                      '20% Off',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          'One Shoulder Top',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        Row(
+          children: [
+            Text(
+              '\$10.00',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            const SizedBox(width: 10),
+            Text(
+              '\$15.00',
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}

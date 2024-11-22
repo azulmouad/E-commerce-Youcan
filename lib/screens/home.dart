@@ -36,7 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 10),
         children: [
           const SizedBox(height: 15),
 
@@ -63,6 +64,43 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               separatorBuilder: (_, i) => const SizedBox(width: 12),
             ),
+          ),
+          const SizedBox(height: 10),
+
+          ///View All Products
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Latest',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: const Text('View all'),
+              ),
+            ],
+          ),
+          const SizedBox(height: 5),
+          GridView(
+            shrinkWrap: true,
+            physics: ScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              childAspectRatio: .8,
+            ),
+            children: [
+              CardProductHomeItem(),
+              CardProductHomeItem(),
+              CardProductHomeItem(),
+              CardProductHomeItem(),
+              CardProductHomeItem(),
+            ],
           ),
         ],
       ),
